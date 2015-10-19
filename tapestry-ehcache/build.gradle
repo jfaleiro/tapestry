@@ -1,0 +1,8 @@
+dependencies {
+	compile project(':tapestry-core')
+	
+	// test dependencies, pain in gradle
+	testCompile project(path: ':tapestry-core', configuration: 'tests')
+	
+	compile 'net.sf.ehcache:ehcache:2.10.0'
+}

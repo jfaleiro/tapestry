@@ -1,0 +1,36 @@
+plugins {
+    id "com.github.hierynomus.license" version "0.11.0"
+}
+
+subprojects {
+
+	
+	apply plugin: 'java'
+	apply plugin: 'eclipse-wtp'
+	apply plugin: 'license'
+
+	sourceCompatibility = 1.8
+	
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		testCompile 'junit:junit:4.12'
+		
+		compile 'com.google.guava:guava:19.0-rc2'
+		compile 'org.slf4j:slf4j-simple:1.7.12'
+
+	}
+
+	version = '0.0.1'
+
+	jar {
+		manifest.attributes provider: 'jfaleiro'
+	}
+	
+	license {
+		header rootProject.file('HEADER')
+	}
+
+}
