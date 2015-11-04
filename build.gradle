@@ -10,6 +10,7 @@ subprojects {
 	apply plugin: 'license'
 	apply plugin: 'maven-publish'
 	apply plugin: 'maven'
+	apply plugin: 'groovy'
 
 	sourceCompatibility = 1.8
 	
@@ -20,9 +21,11 @@ subprojects {
 
 	dependencies {
 		testCompile 'junit:junit:4.12'
+		testCompile 'org.spockframework:spock-core:1.0-groovy-2.4' // spock
 		
 		compile 'com.google.guava:guava:19.0-rc2'
 		compile 'org.slf4j:slf4j-simple:1.7.12'
+		compile 'org.codehaus.groovy:groovy-all:2.4.1' // spock
 
 	}
 

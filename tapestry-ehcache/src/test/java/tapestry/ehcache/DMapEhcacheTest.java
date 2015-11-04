@@ -25,16 +25,18 @@ import net.sf.ehcache.config.CacheConfiguration;
 import tapestry.AbstractDMapTest;
 import tapestry.DMap;
 
-public class DMapEhcacheTest extends AbstractDMapTest {
+public class DMapEhcacheTest //
+//extends AbstractDMapTest 
+{
 
-	@Override
+//	@Override
 	protected DMap<String, Integer> createDMap(String name) throws Exception {
 		final CacheConfiguration cc = new CacheConfiguration(name, 1000);
 		final Cache c = new Cache(cc);
 		return new DMapEhcache<String, Integer>(c, name);
 	}
 
-	@Override
+//	@Override
 	protected void destroyDMap(DMap<String, Integer> map) throws Exception {
 		// ND
 
