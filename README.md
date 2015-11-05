@@ -69,8 +69,8 @@ gradle install
 
 ## For More
 
-Check unit tests for examples of use
+Check unit and mutational tests for examples of use
 
 ```
-gradle test
+gradle test pitest
 ```

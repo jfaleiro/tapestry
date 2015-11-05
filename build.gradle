@@ -1,16 +1,30 @@
+
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {
+		  url "https://plugins.gradle.org/m2/"
+		}
+	  }
+	dependencies {
+		classpath "info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.4" // PIT testing
+	}
+}
+
 plugins {
-    id "com.github.hierynomus.license" version "0.11.0"
+	id "com.github.hierynomus.license" version "0.11.0"
+	id "info.solidsoft.pitest" version "1.1.4" // PIT testing
+
 }
 
 subprojects {
-
-	
 	apply plugin: 'java'
 	apply plugin: 'eclipse-wtp'
 	apply plugin: 'license'
 	apply plugin: 'maven-publish'
 	apply plugin: 'maven'
 	apply plugin: 'groovy'
+	apply plugin: "info.solidsoft.pitest"
 
 	sourceCompatibility = 1.8
 	
@@ -19,6 +33,7 @@ subprojects {
 		mavenLocal()
 	}
 
+	
 	dependencies {
 		testCompile 'junit:junit:4.12'
 		testCompile 'org.spockframework:spock-core:1.0-groovy-2.4' // spock
@@ -46,6 +61,11 @@ subprojects {
 				from components.java
 			}
 		}
+	}
+	
+	pitest {
+		threads = 4
+		targetClasses = ['tapestry.*']
 	}
 	
 }
